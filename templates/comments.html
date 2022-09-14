@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<span class="title"><h1>{% block title %} Latest Comments {% endblock %}</h1></span>
+<div class="content">
+	{% for cmt in comments %}
+	   <div class="comment">
+	   	<i>(#{{cmt.id}})
+	   		<p>{{ cmt.content }}</p>
+	   	</i>
+	  
+	   <p class = "title">
+	   	on <a href="{{url_for('post', 
+	   	post_id=cmt.post.id) }}">{{cmt.post.title}}</a>
+	   </p>
+	    </div>
+	 {% endfor %}
+</div>
+{% endblock %}
